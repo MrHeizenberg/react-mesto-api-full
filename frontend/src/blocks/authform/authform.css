@@ -1,0 +1,17 @@
+.authform {
+    margin: 0 auto 0;
+    width: 100%;
+    max-width: 880px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+@media screen and (max-width: 767px) {
+    .authform {
+        padding-top: 40px;
+        max-width: 320px;
+    }
+}

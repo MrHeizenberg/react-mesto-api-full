@@ -1,0 +1,25 @@
+.authform__text {
+    padding: 0 0 9px 0;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    background-color: black;
+    width: 358px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+
+.authform__text::placeholder {
+    color: #CCCCCC;
+}
+
+.authform__text:nth-of-type(1) {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+    .authform__text {
+        max-width: 260px;
+    }
+}

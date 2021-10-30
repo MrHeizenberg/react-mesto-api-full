@@ -1,0 +1,6 @@
+@media screen and (max-width: 767px) {
+    .popup__container_type_edit {
+        margin: 0;
+        min-width: 282px;
+    }
+}

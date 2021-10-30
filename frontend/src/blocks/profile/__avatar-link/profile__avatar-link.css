@@ -1,0 +1,38 @@
+.profile__avatar-link {
+    margin: 0 30px 0 0;
+    position: relative;
+    align-self: center;
+    border-radius: 300%;
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.profile__avatar-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 30px;
+    bottom: 0;
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+}
+
+.profile__avatar-link:hover::after {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.2s ease;
+    background-image: url(../../../images/Profileupdate.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__avatar-link {
+        margin: 0 0 28px 0;
+    }
+}

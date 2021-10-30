@@ -1,0 +1,12 @@
+.cards__fullphoto {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 282px;
+    height: 282px;
+    cursor: pointer;
+    outline: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

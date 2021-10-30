@@ -1,0 +1,6 @@
+.popup__container_type_image {
+    display: block;
+    max-width: 75vw;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+}

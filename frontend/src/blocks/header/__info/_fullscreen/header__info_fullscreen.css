@@ -1,0 +1,9 @@
+.header__info_fullscreen {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .header__info_fullscreen {
+        display: none;
+    }
+}

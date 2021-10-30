@@ -1,0 +1,36 @@
+.authform__signswitch {
+    position: absolute;
+    padding: 0;
+    width: 53px;
+    height: 22px;
+    border: none;
+    background-color: black;
+    left: 828px;
+    top: -68px;
+    margin: 0;
+    color: white;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.authform__signswitch:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 900px) {
+    .authform__signswitch {
+        left: 700px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .authform__signswitch {
+        font-size: 14px;
+        line-height: 17px;
+        left: 245px;
+        top: -55px;
+    }
+}

@@ -1,0 +1,21 @@
+.authform__save {
+    margin-top: 216px;
+    padding: 0;
+    width: 358px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: opacity 0.3s ease;
+}
+
+.authform__save:hover {
+    opacity: 0.85;
+}
+
+@media screen and (max-width: 767px) {
+    .authform__save {
+        margin-top: 173px;
+        width: 260px;
+        height: 46px;
+    }
+}

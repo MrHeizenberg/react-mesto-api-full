@@ -1,0 +1,10 @@
+.popup__container_type_deletecard {
+        min-width: 430px;
+    }
+    
+    @media screen and (max-width: 767px) {
+        .popup__container_type_deletecard {
+            margin: 0;
+            min-width: 282px;
+        }
+    }

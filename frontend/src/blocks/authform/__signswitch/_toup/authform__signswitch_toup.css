@@ -1,0 +1,17 @@
+.authform__signswitch_toup {
+    width: 114px;
+    left: 766px;
+}
+
+@media screen and (max-width: 900px) {
+    .authform__signswitch_toup {
+        left: 650px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .authform__signswitch_toup {
+        left: 190px;
+        top:-55px
+    }
+}
