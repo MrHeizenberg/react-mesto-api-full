@@ -16,6 +16,7 @@ const allowedCors = [
   'http://praktikum.tk',
   'http://localhost:3000',
   'http://wownick.nomoredomains.work',
+  'https://wownick.nomoredomains.work',
 ];
 const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb', {
