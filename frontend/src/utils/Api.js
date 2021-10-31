@@ -13,7 +13,7 @@ class Api {
     }
 
     getProfile() {
-        return fetch(`${this._options.baseUrl}/user/me`, {
+        return fetch(`${this._options.baseUrl}/users/me`, {
             headers: this._options.headers
         })
             .then(res => {

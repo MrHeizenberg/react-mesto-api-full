@@ -1,7 +1,7 @@
 const Card = require('../models/card');
-const AuthError = require('../errors/auth-err');
 const NotFoundError = require('../errors/not-found-err');
 const CastError = require('../errors/cast-err');
+const ForbiddenError = require('../errors/forbidden-err');
 
 const getCards = (req, res, next) => Card.find({})
   .then((cards) => res.status(200).send(cards))
@@ -31,7 +31,7 @@ const deleteCard = (req, res, next) => {
             if (cardOwner) {
               return res.status(200).send({ message: 'Удалено' });
             }
-            throw new AuthError('Вы не можете удалять чужие карточки');
+            throw new ForbiddenError('Вы не можете удалять чужие карточки');
           });
       }
       throw new NotFoundError('Нет карточки по заданному id');

@@ -34,7 +34,7 @@ app.use((req, res, next) => {
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
+    res.end();
   }
   next();
 });
@@ -55,6 +55,8 @@ app.post('/signup', celebrate({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
     avatar: Joi.string().pattern(new RegExp('^https?://[a-z]{1,}')),
+    name: Joi.string().min(2).max(30),
+    about: Joi.string().min(2).max(30),
   }),
 }), createUser);
 app.use(auth);
