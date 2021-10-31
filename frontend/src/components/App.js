@@ -18,6 +18,7 @@ import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 
 function App() {
     const [isLoading, setIsLoading] = React.useState(false);
+    const [token, setToken] = React.useState('');
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
@@ -31,7 +32,6 @@ function App() {
     const [cards, setCards] = React.useState([]);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
     const [loggedIn, setLoggedIn] = React.useState(false);
-    const [token, setToken] = React.useState('');
     const history = useHistory();
     const api = new Api({
         baseUrl: 'https://api.wownick.nomoredomains.work',
@@ -42,23 +42,24 @@ function App() {
     });
 
     React.useEffect(() => {
-            if(localStorage.getItem('jwt')) {
-                const jwt = localStorage.getItem('jwt');
-                setToken(jwt);
-                getContent(jwt).then((data) => {
-                    setUserData(data.email);
-                    setCurrentUser(data);
-                    setLoggedIn(true);
-                    history.push('/');
-                })
-                api.getInitialCards().then((res) => {
-                    setCards(Array.from(res));
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-            }
-    }, [])
+        if(localStorage.getItem('jwt')) {
+            const jwt = localStorage.getItem('jwt');
+            api._options.headers.authorization = `Bearer ${jwt}`;
+            setToken(jwt);
+            getContent(jwt).then((data) => {
+                setUserData(data.email);
+                setCurrentUser(data);
+                setLoggedIn(true);
+                history.push('/');
+            })
+            api.getInitialCards().then((res) => {
+                setCards(Array.from(res));
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+}, [])
 
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i === currentUser._id);
@@ -145,6 +146,7 @@ function App() {
     function handleonAuthorize(password,email) {
         authorize(password,email).then((data) => {
             localStorage.setItem('jwt', data.token);
+            api._options.headers.authorization = `Bearer ${data.token}`;
             setToken(data.token);
             setLoggedIn(true);
             history.push('/');
@@ -152,6 +154,9 @@ function App() {
             getContent(data.token).then((res) => {
                 setCurrentUser(res);
             });
+            api.getInitialCards().then((res) => {
+                setCards(Array.from(res));
+            })
         })
         .catch((err) => {
             console.log(err);
