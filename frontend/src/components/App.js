@@ -51,16 +51,13 @@ function App() {
                     setLoggedIn(true);
                     history.push('/');
                 })
+                api.getInitialCards().then((res) => {
+                    setCards(Array.from(res));
+                })
                 .catch((err) => {
                     console.log(err);
                 })
             }
-        api.getInitialCards().then((res) => {
-            setCards(Array.from(res));
-        })
-            .catch((err) => {
-                console.log(err);
-            })
     }, [])
 
     function handleCardLike(card) {
